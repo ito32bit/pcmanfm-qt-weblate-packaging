@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ -z "$SNAP_NAME" ] ; then
+  SNAP_NAME=pcmanfm-qt-weblate
+fi
+
+echo "
+Setup required:
+
+Please run a command in terminal:
+
+    sudo /snap/$SNAP_NAME/current/make-link.sh
+
+
+And, if you uninstall $SNAP_NAME, please run 'sudo /snap/$SNAP_NAME/current/revert-link.sh'.
+"
+
+read -p "Press Enter key "
+exit 1

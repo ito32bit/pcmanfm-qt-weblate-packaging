@@ -1,0 +1,41 @@
+name: pcmanfm-qt-weblate
+base: core18
+title: PCManFM-Qt-Weblate (unofficial)
+summary: Language package for PCManFM-Qt
+description: |
+  This package contains the l10n (localization) files.
+  
+  This is the unofficial snap packaging.  
+  Upstream: https://weblate.lxqt.org/projects/lxqt/pcmanfm-qt/  
+            https://weblate.lxqt.org/projects/lxqt/libfm-qt/  
+
+grade: stable
+confinement: strict
+
+adopt-info: pcmanfm-qt-weblate
+
+apps:
+  pcmanfm-qt-weblate:
+    command: setup
+
+parts:
+  pcmanfm-qt-weblate:
+    source: .
+    plugin: nil
+    override-pull: |
+      snapcraftctl pull
+      d=`date +%y%m%d`
+      g=`git log --oneline -n 1`
+      ver="$d.$SNAP_ARCH-${g%${g#???}}"
+      echo "Set version: $ver"
+      snapcraftctl set-version $ver
+    build-packages:
+      - qttools5-dev-tools
+      - unzip
+    override-build: |
+      ./extract.sh
+      ./build-qm.sh
+ 
+  dump-files:
+    plugin: dump
+    source: ./dump-files
