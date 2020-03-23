@@ -1,0 +1,26 @@
+name: Get new weblate files
+
+on:
+  schedule:
+    - cron: "0 21 * * *"
+  repository_dispatch:
+    types: [get-ts]
+
+jobs:
+  update-files:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2.0.0
+
+    - run: ./get-ts.sh
+
+    - name: Commit files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "Update weblate-zip files from GitHub Action" -a
+     
+    - name: GitHub Push
+      uses: ad-m/github-push-action@v0.5.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
