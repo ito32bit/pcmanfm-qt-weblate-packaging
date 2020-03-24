@@ -4,3 +4,4 @@ stage/
 *.snap
 *_i386.txt
 *_i386.*.txt
+weblate*.zip
