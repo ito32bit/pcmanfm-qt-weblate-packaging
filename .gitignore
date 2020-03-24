@@ -1,7 +1,6 @@
 parts/
 prime/
 stage/
-weblate/
 *.snap
 *_i386.txt
 *_i386.*.txt

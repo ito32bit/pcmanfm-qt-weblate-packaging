@@ -31,9 +31,7 @@ parts:
       snapcraftctl set-version $ver
     build-packages:
       - qttools5-dev-tools
-      - unzip
     override-build: |
-      ./extract.sh
       ./build-qm.sh
  
   dump-files:
