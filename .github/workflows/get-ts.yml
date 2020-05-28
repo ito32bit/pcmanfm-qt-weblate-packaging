@@ -1,8 +1,8 @@
 name: Get new weblate files
 
 on:
-  schedule:
-    - cron: "0 21 * * *"
+#  schedule:
+#    - cron: "0 21 * * *"
   repository_dispatch:
     types: [get-ts]
 
