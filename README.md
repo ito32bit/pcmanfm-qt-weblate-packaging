@@ -2,7 +2,7 @@
 
 **Latest language package for PCManFM-Qt**
 
-NOTE: https://weblate.lxqt.org/ has disappeared.
+NOTE: Upstream(https://weblate.lxqt.org/) has disappeared.
 
 This package contains the l10n (localization) files.
 The latest translation files from LXQt weblate site.  
